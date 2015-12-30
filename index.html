@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="index_hype_container" style="margin:auto;position:relative;width:1024px;height:1800px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?66685"></script>
+		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?92553"></script>
 	</div>
 
 	<!-- end copy -->
@@ -35,86 +35,116 @@
 
 	<div style="display:none">
 
-		<div>成员通过左侧升级策略菜单项进入升级策略管理页面，并在此页面对升级策略进行创建、修改、删除等操作，如下图所
-
-示。
+		<div>通过左侧导航栏成员组管理菜单项进入成员组管理页面，并在此页面将成员聚合成成员组，如下图所示
 </div>
-		<div>故障分发
-外部监控系统推送到通告平台中所有满足适配规则的事件所生成的故障会按照相应的升级策略进行升级。如上图所示，
-
-所有满足适配规则“[critical][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Critical升级策略”进行
-
-升级，而所有满足适配规则“[warning][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Warning升级
-
-策略”进行升级。
-
-有多条适配规则存在时，事件一旦满足某一条适配规则便停止适配。
-
-故障合并
-如上图所示，监控系统推送到通告平台中的满足适配规则的所有事件在启用合并规则的情况下会合并到同一个故障中，
-
-并按照相应的升级策略进行升级。
-
-例如，外部监控系统推送的事件“[critical][host135][cpu_idle]value=10%“与事件“[critical][host135][cpu_idle]value=
-
-8%”将会合并到同一个故障，并应用升级策略 “Hao123-Critical升级策略”进行升级。
-当监控出现瞬报的时候，轰炸式告警对用户的工作和生活会造成极大的打扰，此时利用合并规则就可以解决这种问题。
-
-状态回调
-如上图所示，故障升级或者被认领解决后，会将故障的状态反馈给成员配置的回调地址，这样第三方系统就可以掌握它
-
-们故障的生命周期。
-
-启用停用
-服务可以被启用与停用，处于停用状态的服务不会接收来自监控系统推送的异常事件从而也不会生成故
-障，产生告警，开关如下图所示。
-
-
-
+		<div>2) 删除成员，点击成员卡片右上角的删除按钮便可把空间的成员删除</div>
+		<div>
 </div>
-		<div>由上图可知Hao123升级策略按照如下策略发送故障的告警，当某个应用了该升级策略的服务触发故障后，系统马上通
-
-过电话、短信、邮件和微信的方式把告警内容发送给值班表 OP值班 中的当前值班人； 15分钟之后，如果该故障还未解
-
-决，系统会将故障升级到第二级，并通过电话、短信、邮件和微信的方把告警内容发送给DEV组 中的所有人；再过10
-
-分钟，若该故障还处于未解决状态，系统会将该故障升级到第三级，并通过电话、短信、邮件和微信的方式把告警内容
-
-发送给经理；再过10分钟之后，故障如果依然没被解决，则该告警流程结束。在整个升级的过程中，任何时刻故障一旦
-
-被空间内的某位成员解决，则故障的升级流程结束，故障的状态变为已解决。
-
-空间内，一条升级策略可以被多个服务应用。
-</div>
-		<div>服务管理
+		<div>启用停用
 </div>
 		<div>点击保存，生成升级策略，如下：
 
 </div>
-		<div>策略管理
+		<div>由上图可知Hao123升级策略按照如下策略发送故障的告警，当某个应用了该升级策略的服务触发故障后，系统马上通过电话、短信、邮件和微信的方式把告警内容发送给值班表 OP值班 中的当前值班人； 15分钟之后，如果该故障还未解决，系统会将故障升级到第二级，并通过电话、短信、邮件和微信的方把告警内容发送给DEV组 中的所有人；再过10分钟，若该故障还处于未解决状态，系统会将该故障升级到第三级，并通过电话、短信、邮件和微信的方式把告警内容发送给经理；再过10分钟之后，故障如果依然没被解决，则该告警流程结束。在整个升级的过程中，任何时刻故障一旦被空间内的某位成员解决，则故障的升级流程结束，故障的状态变为已解决。
+空间内，一条升级策略可以被多个服务应用。</div>
+		<div>服务可以被启用与停用，处于停用状态的服务不会接收来自监控系统推送的异常事件从而也不会生成故障，产生告警，开关如下图所示。
+</div>
+		<div>账号管理
+</div>
+		<div>外部监控系统推送到通告平台中所有满足适配规则的事件所生成的故障会按照相应的升级策略进行升级。如上图所示，所有满足适配规则“[critical][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Critical升级策略”进行升级，而所有满足适配规则“[warning][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Warning升级策略”进行升级。
+有多条适配规则存在时，事件一旦满足某一条适配规则便停止适配。</div>
+		<div>设置联系方式
+</div>
+		<div>注册
+</div>
+		<div>故障分发
+</div>
+		<div>故障在其生命周期（从触发到解决）内发生的所有事件（何时触发、何时告警、何时升级、何时被认领、何时被解决）会被记录，并通过web可进行跟踪。如上图所示。故障生命周期的状态流转如下图所示。
+</div>
+		<div>变更成员角色
+</div>
+		<div>新增/删除成员
+</div>
+		<div>从首页右上角注册按钮进入注册页面如下，通过邮箱完成注册
+</div>
+		<div>生命周期跟踪
+</div>
+		<div>1) 点击新增成员后，在输入框中输入您要邀请的成员邮箱，然后点击邀请。被邀请用户会收到一封邀请邮件，被邀请用户点击邮件中的确认链接便可加入空间，成为空间中的一员
+</div>
+		<div>登录成功后，通过下图方式进行联系方式的设置（注册邮箱被默认设置为邮件联系方式，但可更改），设置完成后告警会通过所设置的联系方式进行发送。
+还可以添加微信联系方式，关注百度告警微信企业号，便可通过微信接收告警
+</div>
+		<div>点击成员卡片右上角的锤子图标便可变更成员的在空间之中的角色，告警平台支持的成员角色如下：管理员：对空间所有资源都有操作权限，辅助空间创建者管理空间普通用户：对空间中的资源只有新增或变更的权限，无删除的权限只读用户：在空间中只能对故障进行变更，对其他资源只有查看权限</div>
+		<div>故障合并
+</div>
+		<div>登录
+</div>
+		<div>成员管理
+</div>
+		<div>在完成升级策略与服务的配置后,用户可以在服务管理页面获取到服务的 ID 与 API Key, 并通过 API(也提供 Java、PHP 与 Python 版本的 SDK)的方式实现外部监控系统与通告 平台的对接,具体方法请参考文档。
+</div>
+		<div>空间管理
+</div>
+		<div>如上图所示，监控系统推送到通告平台中的满足适配规则的所有事件在启用合并规则的情况下会合并到同一个故障中，并按照相应的升级策略进行升级。
+例如，外部监控系统推送的事件“[critical][host135][cpu_idle]value=10%“与事件“[critical][host135][cpu_idle]value=
+8%”将会合并到同一个故障，并应用升级策略 “Hao123-Critical升级策略”进行升级。
+当监控出现瞬报的时候，轰炸式告警对用户的工作和生活会造成极大的打扰，此时利用合并规则就可以解决这种问题。
+</div>
+		<div>接入方式
+</div>
+		<div>空间设置
+</div>
+		<div>成员
+</div>
+		<div>服务管理
+</div>
+		<div>登录成功后，系统会自动为用户创建默认空间，并为每个空间分配一定的短信配额（100条）与电话配额（100通）。在个人主页可以对空间进行创建、更名、退出等操作
+</div>
+		<div>状态回调
+</div>
+		<div>进入空间，通过左侧的导航栏成员管理进入成员管理页面，在次页面可以做如下操作
+1) 新增/删除成员
+2) 变更成员角色
+</div>
+		<div>一键处理
+</div>
+		<div>故障管理
+</div>
+		<div>如上图所示，故障升级或者被认领解决后，会将故障的状态反馈给成员配置的回调地址，这样第三方系统就可以掌握它们故障的生命周期。
+</div>
+		<div>空间成员在收到告警后，可点击短信中的处理链接对故障进行认领解决，如下右图所示。也可通过点击微信中故障列表后，对故障进行认领、解决和转让。
+
 </div>
 		<div>升级策略创建完成后，用户需从左侧导航栏服务管理菜单项进入服务管理页面，并在此页面创建服务，如下图所示。
 
 </div>
-		<div><?php$config = array('service_id' => 1042,'service_key' => '5f0ff0c51a99b358e32ccb176d8d4f8f',);$node = $argv[1];$summary = $argv[2];$description = '节点['.$node.']触发告警，告警详情为:'.$summary;$url = 'http://gaojing.baidu.com/event/create';$data = array('service_id' => $config['service_id'],'description' => $description,'event_type' => 'trigger',);$headers[] = 'servicekey:'.$config['service_key'];post($url, $data, $headers);function post($url, $data, $headers){$data = json_encode($data);print_r($headers);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);//print_r($response_code);/*if($response_code !== 200){try{throw new Exception("curl url: ".$url ." with ".$data." fail ");}catch (Exception $e){print "error message".$e->getMessage();var_dump($response_code);var_dump(utf8_decode($response));}}*/curl_close($ch);$response = json_decode($response);print_r($response);return $response;}</div>
-		<div>
+		<div>升级策略
 </div>
-		<div>#! /bin/bashAPP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=$1DESCRIPTION=$2DATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://tonggao.baidu.com/AlertList/push</div>
-		<div>./send.sh 13924600771 这是来自百度告警平台的测试短信</div>
-		<div>Step 2：通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
+		<div>1) QQ登录</div>
+		<div>成员组
+</div>
+		<div>故障视图
+</div>
+		<div>2) 系统账号登录</div>
+		<div>成员通过左侧升级策略菜单项进入升级策略管理页面，并在此页面对升级策略进行创建、修改、删除等操作，如下图所
+示。
+</div>
+		<div><?php$config = array('service_id' => 1042,'service_key' => '5f0ff0c51a99b358e32ccb176d8d4f8f',);$node = $argv[1];$summary = $argv[2];$description = '节点['.$node.']触发告警，告警详情为:'.$summary;$url = 'http://gaojing.baidu.com/event/create';$data = array('service_id' => $config['service_id'],'description' => $description,'event_type' => 'trigger',);$headers[] = 'servicekey:'.$config['service_key'];post($url, $data, $headers);function post($url, $data, $headers){$data = json_encode($data);print_r($headers);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);//print_r($response_code);/*if($response_code !== 200){try{throw new Exception("curl url: ".$url ." with ".$data." fail ");}catch (Exception $e){print "error message".$e->getMessage();var_dump($response_code);var_dump(utf8_decode($response));}}*/curl_close($ch);$response = json_decode($response);print_r($response);return $response;}</div>
+		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
+1)下载 send.sh 脚本，脚本内容如下所示：
+
+</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
 电话：13924600771
 QQ群：183806029
 
 </div>
-		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
-
-Step 1：下载 send.sh 脚本，脚本内容如下所示：
-
-</div>
+		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
 		<div> 帮助文档
 </div>
+		<div>./send.sh 13924600771 这是来自百度告警平台的测试短信</div>
+		<div>#! /bin/bashAPP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=$1DESCRIPTION=$2DATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://tonggao.baidu.com/AlertList/push</div>
 		<div>故障管理
 </div>
 		<div>SDK接入
@@ -164,59 +194,22 @@ Step 1：下载 send.sh 脚本，脚本内容如下所示：
 </div>
 		<div>成员管理
 </div>
-		<div>执行如下指令重启Nagios：
-</div>
-		<div>2) 给被监控对象的机器更多的测试负载
-</div>
-		<div>service nagios restart</div>
-		<div>1) 将百度告警发送脚本gaojing_nagios.sh下载到Nagios命令目录下（默认为/usr/local/nagios/libexec），确认其权限与其他命令一样
-
-  （如nagios:nagios)
-
-    点击 这里下载gaojing_nagios.sh告警脚本
-</div>
-		<div>Nagios接入</div>
 		<div>2) 修改nagios的配置文件command.cfg（默认位置为：/usr/local/nagios/etc/objects)，command.cfg用以配置nagios
 
 各项监控和操作 命令。
 
  添加新的command：notify-service-by-baidugaojing和notify-host-by-baidugaojing，其中1588和
 96d7f4e94e9e0acb567c30d0e63122ca为之前百度告警服务的id和token</div>
-		<div>执行如下测试语句，以达到机器负载过高的效果</div>
-		<div>cd ~find . | xargs -P 50 -i cat {} > /dev/null</div>
-		<div>最后的脚本权限如下图：</div>
-		<div>cd /usr/local/nagios/libexecwget http://help.gaojing.baidu.com/help/wp-content/uploads/2015/10/gaojing_nagios.shchown nagios:nagios gaojing_nagios.shchmod 755 gaojing_nagios.sh</div>
+		<div>执行如下指令重启Nagios：
+</div>
+		<div>Step 1 在百度告警中配置服务和升级策略</div>
 		<div>3) nagios监控到CRITICAL的告警
 </div>
+		<div>Nagios接入</div>
+		<div>Step 4：测试配置是否成功</div>
+		<div>define command{command_name notify-host-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 主机名: $HOSTNAME$ State: $HOSTSTATE$ 主机IP: $HOSTADDRESS$ 主机状态: $HOSTOUTPUT$ 发生时间: $LONGDATETIME$ | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
 		<div>Step 3：在Nagios中配置templates.cfg
 </div>
-		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：</div>
-		<div>notify-host-by-baidugaojing command : 
-</div>
-		<div>4) 在手机上收到百度告警发送的告警短信
-</div>
-		<div>cd /usr/local/nagios/etc/objectsvim templates.cfg</div>
-		<div>1) 修改Host和Service告警的发送方式。如果是初始安装配置，直接在模板配置templates.cfg中修改service_notification
-
-_commands和host_notification_commands的值为设置好的notify-service-by-baidugaojing和notify-host-by-
-
-baidugaojing
-</div>
-		<div>对于使用Nagios的用户，要接入百度告警非常简单，只需要按以下四步骤进行配置，就可以使用短信、电话、微信来接收Nagios告警信息。
-</div>
-		<div>gaojing_nagios.sh 脚本内容：
-</div>
-		<div>define command{command_name notify-service-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 告警服务: $SERVICEDESC$ 主机别名: $HOSTALIAS$ 主机IP: $HOSTADDRESS$ 服务状态: $SERVICESTATE$ 发生时间: $LONGDATETIME$ 附加信息: $SERVICEOUTPUT$" | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
-		<div>Step 1 在百度告警中配置服务和升级策略</div>
-		<div>如果Nagios安装在默认目录，可以用如下命令进行编辑：
-</div>
-		<div> 2) 重新启动nagios，配置修改就完成了
-</div>
-		<div>define command{command_name notify-host-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 主机名: $HOSTNAME$ State: $HOSTSTATE$ 主机IP: $HOSTADDRESS$ 主机状态: $HOSTOUTPUT$ 发生时间: $LONGDATETIME$ | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
-		<div>如果Nagios的安装目录为默认目录，并且Nagios的启动用户为 nagios , 可以参考如下命令：
-
-</div>
-		<div>Step 4：测试配置是否成功</div>
 		<div>1) 登录百度告警，完善个人联系方式，然后点击进入默认空间
 
 2) 点击升级策略，创建微信、电话、短信、邮件接收告警信息的升级策略
@@ -227,16 +220,35 @@ baidugaojing
      
     需要用到
 </div>
-		<div>#! /bin/bashTIME=`date`SEND_TO=$1TITLE="nagios alert"CONTENT=$2SERVICE_ID=`eval echo $SEND_TO|awk -F, '{print $1}'`SERVICE_KEY=`eval echo $SEND_TO|awk -F, '{print $2}'`EVENT_TYPE='trigger'DESCRIPTION="$TITLE-$CONTENT"DATA="{service_id : \"$SERVICE_ID\", description : \"$DESCRIPTION\",event_type : \"$EVENT_TYPE\"}"curl --silent -H "servicekey:$SERVICE_KEY" -X POST -d "$DATA" http://gaojing.baidu.com/event/create</div>
-		<div>最终编辑后的效果如下图：
+		<div>4) 在手机上收到百度告警发送的告警短信
 </div>
+		<div>如果Nagios安装在默认目录，可以用如下命令进行编辑：
+</div>
+		<div>cd /usr/local/nagios/libexecwget http://help.gaojing.baidu.com/help/wp-content/uploads/2015/10/gaojing_nagios.shchown nagios:nagios gaojing_nagios.shchmod 755 gaojing_nagios.sh</div>
 		<div>1) 打开Nagios的服务监控页面，我们以Current Load作为测试对象，现在其状态为OK
 </div>
+		<div>cd /usr/local/nagios/etc/objectsvim templates.cfg</div>
+		<div>#! /bin/bashTIME=`date`SEND_TO=$1TITLE="nagios alert"CONTENT=$2SERVICE_ID=`eval echo $SEND_TO|awk -F, '{print $1}'`SERVICE_KEY=`eval echo $SEND_TO|awk -F, '{print $2}'`EVENT_TYPE='trigger'DESCRIPTION="$TITLE-$CONTENT"DATA="{service_id : \"$SERVICE_ID\", description : \"$DESCRIPTION\",event_type : \"$EVENT_TYPE\"}"curl --silent -H "servicekey:$SERVICE_KEY" -X POST -d "$DATA" http://gaojing.baidu.com/event/create</div>
+		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：</div>
 		<div>Step 2：在Nagios中配置command.cfg
 
 </div>
+		<div>gaojing_nagios.sh 脚本内容：
+</div>
+		<div>最终编辑后的效果如下图：
+</div>
+		<div>2) 给被监控对象的机器更多的测试负载
+</div>
+		<div>最后的脚本权限如下图：</div>
 		<div>notify-service-by-baidugaojing command : 
 </div>
+		<div>1) 修改Host和Service告警的发送方式。如果是初始安装配置，直接在模板配置templates.cfg中修改service_notification
+
+_commands和host_notification_commands的值为设置好的notify-service-by-baidugaojing和notify-host-by-
+
+baidugaojing
+</div>
+		<div>service nagios restart</div>
 		<div>接入步骤：
 Step 1：在百度告警中配置服务和升级策略。
 
@@ -247,55 +259,50 @@ Step 3：在Nagios中配置templates.cfg，配置联系人使用百度告警接�
 Step 4：测试配置是否成功，使用电话、短信、邮件、微信接收告警！
 
 </div>
-		<div>百度告警平台介绍</div>
-		<div>故障协同处理
+		<div>1) 将百度告警发送脚本gaojing_nagios.sh下载到Nagios命令目录下（默认为/usr/local/nagios/libexec），确认其权限与其他命令一样
+
+  （如nagios:nagios)
+
+    点击 这里下载gaojing_nagios.sh告警脚本
 </div>
-		<div>多端实时报警
-</div>
-		<div>通过轮值、升级、转让等机制帮助用户轻松实
-
-现告警的协同处理。
-
-明确排班，避免告警群收，责任不清；
-
-
-告警升级，规避漏导带来的业务受损；
-
-
-告警转让，及时交由正确的人进行跟进；
-
+		<div>如果Nagios的安装目录为默认目录，并且Nagios的启动用户为 nagios , 可以参考如下命令：
 
 </div>
+		<div>对于使用Nagios的用户，要接入百度告警非常简单，只需要按以下四步骤进行配置，就可以使用短信、电话、微信来接收Nagios告警信息。
+</div>
+		<div>执行如下测试语句，以达到机器负载过高的效果</div>
+		<div>notify-host-by-baidugaojing command : 
+</div>
+		<div> 2) 重新启动nagios，配置修改就完成了
+</div>
+		<div>define command{command_name notify-service-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 告警服务: $SERVICEDESC$ 主机别名: $HOSTALIAS$ 主机IP: $HOSTADDRESS$ 服务状态: $SERVICESTATE$ 发生时间: $LONGDATETIME$ 附加信息: $SERVICEOUTPUT$" | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
+		<div>cd ~find . | xargs -P 50 -i cat {} > /dev/null</div>
 		<div>运维效率分析
 </div>
-		<div>是一款面向IT监控系统提供 故障管理和告警服务的平
-
-台，其特性主要包括四个方面，多端实时告警、富文
-
-本告警、告警协同处理以及告警数据分析。
+		<div>主要通过多种高质量渠道帮助用户解决告警可达性的问题。通过传统的邮件告警保证固网告警可达， 5条3网合一的互备短信通道以及40路电话通道保证电话网络告警可达，微信通道保证移动网络告警可达。 
 </div>
-		<div>富文本告警
+		<div>通过将H5页面嵌入短信与微信帮助用户解决手机告警信息的可读性以及可追踪 性问题。
+用户在收到告警的第一时间，除了能通过手机轻松浏览告警的文本详情之外，还可查看告警的状态，以及追踪告警的进展，并对告警进行相应处理。
+
+</div>
+		<div>故障协同处理
+</div>
+		<div>是一款面向IT监控系统提供 故障管理和告警服务的平台，其特性主要包括四个方面，多端实时告警、富文本告警、告警协同处理以及告警数据分析。
 </div>
 		<div>真实反映运维团队人力负载状况以及服务 健康状态。
 
 </div>
-		<div>主要通过多种高质量渠道帮助用户解决告警可达性的问题。通过传统的邮件告警保证固网告警可达， 5条3网合一的互备
+		<div>百度告警平台介绍</div>
+		<div>多端实时报警
+</div>
+		<div>通过轮值、升级、转让等机制帮助用户轻松实现告警的协同处理。
+明确排班，避免告警群收，责任不清；告警升级，规避漏导带来的业务受损；告警转让，及时交由正确的人进行跟进；
 
-短信通道以及40路电话通道保证电话网络告警可达，微信通道保证移动网络告警可达。 
+
 </div>
 		<div>百度告警平台
 </div>
-		<div>通过将H5页面嵌入短信与微信帮助用户解决手机告
-
-警信息的可读性以及可追踪 性问题。
-
- 
-用户在收到告警的第一时间，除了能通过手机轻松浏
-
-览告警的文本详情之外，还可查看告警的状态，以及
-
-追踪告警的进展，并对告警进行相应处理。
-
+		<div>富文本告警
 </div>
 
 	</div>
