@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="index_hype_container" style="margin:auto;position:relative;width:1024px;height:1800px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?64504"></script>
+		<script type="text/javascript" charset="utf-8" src="index.hyperesources/index_hype_generated_script.js?46124"></script>
 	</div>
 
 	<!-- end copy -->
@@ -102,11 +102,11 @@
 </div>
 		<div>状态回调
 </div>
+		<div>一键处理
+</div>
 		<div>进入空间，通过左侧的导航栏成员管理进入成员管理页面，在次页面可以做如下操作
 1) 新增/删除成员
 2) 变更成员角色
-</div>
-		<div>一键处理
 </div>
 		<div>故障管理
 </div>
@@ -130,21 +130,24 @@
 示。
 </div>
 		<div><?php$config = array('service_id' => 1042,'service_key' => '5f0ff0c51a99b358e32ccb176d8d4f8f',);$node = $argv[1];$summary = $argv[2];$description = '节点['.$node.']触发告警，告警详情为:'.$summary;$url = 'http://gaojing.baidu.com/event/create';$data = array('service_id' => $config['service_id'],'description' => $description,'event_type' => 'trigger',);$headers[] = 'servicekey:'.$config['service_key'];post($url, $data, $headers);function post($url, $data, $headers){$data = json_encode($data);print_r($headers);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);//print_r($response_code);/*if($response_code !== 200){try{throw new Exception("curl url: ".$url ." with ".$data." fail ");}catch (Exception $e){print "error message".$e->getMessage();var_dump($response_code);var_dump(utf8_decode($response));}}*/curl_close($ch);$response = json_decode($response);print_r($response);return $response;}</div>
-		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
-1)下载 send.sh 脚本，脚本内容如下所示：
-
-</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
 电话：13924600771
 QQ群：183806029
 
 </div>
+		<div>发送送短信接入
+</div>
+		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
+1)下载 send.sh 脚本，脚本内容如下所示：</div>
 		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
+		<div>./send.sh 13924600771 这是来自百度告警平台的测试短信 true</div>
 		<div> 帮助文档
 </div>
+		<div>#! /bin/bashAPP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"if [ $# -lt 2 ];thenecho "必须提供 电话号码 和 短信内容 参数, 如：./send.sh 13924600771 这是来自百度告警平台的测试短信"exit 1fiRECEIVER=$1DESCRIPTION=$2BUSINESS=falseif [ $# == 3 ];thenif [ $3 == true ];thenBUSINESS=truefifiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
+		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
+</div>
 		<div>./send.sh 13924600771 这是来自百度告警平台的测试短信</div>
-		<div>#! /bin/bashAPP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=$1DESCRIPTION=$2DATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://tonggao.baidu.com/AlertList/push</div>
 		<div>故障管理
 </div>
 		<div>SDK接入
