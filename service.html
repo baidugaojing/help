@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>service</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="service_hype_container" style="margin:auto;position:relative;width:1024px;height:1800px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="service.hyperesources/service_hype_generated_script.js?91927"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>接入方式
+</div>
+		<div>状态回调
+</div>
+		<div>如上图所示，故障升级或者被认领解决后，会将故障的状态反馈给成员配置的回调地址，这样第三方系统就可以掌握它们故障的生命周期。
+</div>
+		<div>外部监控系统推送到通告平台中所有满足适配规则的事件所生成的故障会按照相应的升级策略进行升级。如上图所示，所有满足适配规则“[critical][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Critical升级策略”进行升级，而所有满足适配规则“[warning][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Warning升级策略”进行升级。
+有多条适配规则存在时，事件一旦满足某一条适配规则便停止适配。</div>
+		<div>故障分发
+</div>
+		<div>服务管理
+</div>
+		<div>启用停用
+</div>
+		<div>服务可以被启用与停用，处于停用状态的服务不会接收来自监控系统推送的异常事件从而也不会生成故障，产生告警，开关如下图所示。
+</div>
+		<div>故障合并
+</div>
+		<div>升级策略创建完成后，用户需从左侧导航栏服务管理菜单项进入服务管理页面，并在此页面创建服务，如下图所示。
+
+</div>
+		<div>在完成升级策略与服务的配置后,用户可以在服务管理页面获取到服务的 ID 与 API Key, 并通过 API(也提供 Java、PHP 与 Python 版本的 SDK)的方式实现外部监控系统与通告 平台的对接,具体方法请参考文档。
+</div>
+		<div>如上图所示，监控系统推送到通告平台中的满足适配规则的所有事件在启用合并规则的情况下会合并到同一个故障中，并按照相应的升级策略进行升级。
+例如，外部监控系统推送的事件“[critical][host135][cpu_idle]value=10%“与事件“[critical][host135][cpu_idle]value=
+8%”将会合并到同一个故障，并应用升级策略 “Hao123-Critical升级策略”进行升级。
+当监控出现瞬报的时候，轰炸式告警对用户的工作和生活会造成极大的打扰，此时利用合并规则就可以解决这种问题。
+</div>
+		<div> 帮助文档
+</div>
+		<div></div>
+		<div>空间管理
+</div>
+		<div>数据分析
+</div>
+		<div>
+</div>
+		<div>功能介绍
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>发送短信接入
+</div>
+		<div>推送事件
+</div>
+		<div>成员管理
+</div>
+		<div>产品介绍
+</div>
+		<div>案例场景
+</div>
+		<div>策略管理
+</div>
+		<div>产品手册
+</div>
+		<div>账号管理
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>服务管理
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>故障管理
+</div>
+		<div>接入
+</div>
+		<div>Python
+</div>
+		<div>SDK接入
+</div>
+		<div>推送消息
+</div>
+		<div>Java
+</div>
+		<div>API接入
+</div>
+		<div>PHP
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>

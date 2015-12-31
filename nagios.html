@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>nagios</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="nagios_hype_container" style="margin:auto;position:relative;width:1024px;height:1000px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="nagios.hyperesources/nagios_hype_generated_script.js?50640"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>
+</div>
+		<div>cd /usr/local/nagios/etc/objectsvim templates.cfg</div>
+		<div>Step 4：测试配置是否成功</div>
+		<div>1) 打开Nagios的服务监控页面，我们以Current Load作为测试对象，现在其状态为OK
+</div>
+		<div>notify-host-by-baidugaojing command : 
+</div>
+		<div>1) 登录百度告警，完善个人联系方式，然后点击进入默认空间
+
+2) 点击升级策略，创建微信、电话、短信、邮件接收告警信息的升级策略
+
+3) 在服务管理中，创建Nagios接收服务
+
+4) 请记录下服务ID以及Token，演示视频中的服务ID为1588，token为 96d7f4e94e9e0acb567c30d0e63122ca，在后续Nagios配置中
+     
+    需要用到
+</div>
+		<div>define command{command_name notify-service-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 告警服务: $SERVICEDESC$ 主机别名: $HOSTALIAS$ 主机IP: $HOSTADDRESS$ 服务状态: $SERVICESTATE$ 发生时间: $LONGDATETIME$ 附加信息: $SERVICEOUTPUT$" | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
+		<div>2) 给被监控对象的机器更多的测试负载
+</div>
+		<div>Step 2：在Nagios中配置command.cfg
+
+</div>
+		<div>执行如下测试语句，以达到机器负载过高的效果</div>
+		<div>define command{command_name notify-host-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 主机名: $HOSTNAME$ State: $HOSTSTATE$ 主机IP: $HOSTADDRESS$ 主机状态: $HOSTOUTPUT$ 发生时间: $LONGDATETIME$ | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
+		<div>3) nagios监控到CRITICAL的告警
+</div>
+		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：</div>
+		<div>如果Nagios安装在默认目录，可以用如下命令进行编辑：
+</div>
+		<div>service nagios restart</div>
+		<div>最终编辑后的效果如下图：
+</div>
+		<div>cd ~find . | xargs -P 50 -i cat {} > /dev/null</div>
+		<div>#! /bin/bashTIME=`date`SEND_TO=$1TITLE="nagios alert"CONTENT=$2SERVICE_ID=`eval echo $SEND_TO|awk -F, '{print $1}'`SERVICE_KEY=`eval echo $SEND_TO|awk -F, '{print $2}'`EVENT_TYPE='trigger'DESCRIPTION="$TITLE-$CONTENT"DATA="{service_id : \"$SERVICE_ID\", description : \"$DESCRIPTION\",event_type : \"$EVENT_TYPE\"}"curl --silent -H "servicekey:$SERVICE_KEY" -X POST -d "$DATA" http://gaojing.baidu.com/event/create</div>
+		<div>1) 将百度告警发送脚本gaojing_nagios.sh下载到Nagios命令目录下（默认为/usr/local/nagios/libexec），确认其权限与其他命令一样
+
+  （如nagios:nagios)
+
+    点击 这里下载gaojing_nagios.sh告警脚本
+</div>
+		<div>gaojing_nagios.sh 脚本内容：
+</div>
+		<div>执行如下指令重启Nagios：
+</div>
+		<div>2) 修改nagios的配置文件command.cfg（默认位置为：/usr/local/nagios/etc/objects)，command.cfg用以配置nagios
+
+各项监控和操作 命令。
+
+ 添加新的command：notify-service-by-baidugaojing和notify-host-by-baidugaojing，其中1588和
+96d7f4e94e9e0acb567c30d0e63122ca为之前百度告警服务的id和token</div>
+		<div>接入步骤：
+Step 1：在百度告警中配置服务和升级策略。
+
+Step 2：在Nagios中配置command.cfg，配置百度告警接方式。
+
+Step 3：在Nagios中配置templates.cfg，配置联系人使用百度告警接收告警。
+
+Step 4：测试配置是否成功，使用电话、短信、邮件、微信接收告警！
+
+</div>
+		<div>Step 3：在Nagios中配置templates.cfg
+</div>
+		<div>Nagios接入</div>
+		<div>如果Nagios的安装目录为默认目录，并且Nagios的启动用户为 nagios , 可以参考如下命令：
+
+</div>
+		<div>cd /usr/local/nagios/libexecwget http://help.gaojing.baidu.com/help/wp-content/uploads/2015/10/gaojing_nagios.shchown nagios:nagios gaojing_nagios.shchmod 755 gaojing_nagios.sh</div>
+		<div>1) 修改Host和Service告警的发送方式。如果是初始安装配置，直接在模板配置templates.cfg中修改service_notification
+
+_commands和host_notification_commands的值为设置好的notify-service-by-baidugaojing和notify-host-by-
+
+baidugaojing
+</div>
+		<div>对于使用Nagios的用户，要接入百度告警非常简单，只需要按以下四步骤进行配置，就可以使用短信、电话、微信来接收Nagios告警信息。
+</div>
+		<div>notify-service-by-baidugaojing command : 
+</div>
+		<div> 2) 重新启动nagios，配置修改就完成了
+</div>
+		<div>最后的脚本权限如下图：</div>
+		<div> 帮助文档
+</div>
+		<div></div>
+		<div>PHP
+</div>
+		<div>空间管理
+</div>
+		<div>发送短信接入
+</div>
+		<div>数据分析
+</div>
+		<div>功能介绍
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>推送事件
+</div>
+		<div>成员管理
+</div>
+		<div>产品介绍
+</div>
+		<div>案例场景
+</div>
+		<div>策略管理
+</div>
+		<div>产品手册
+</div>
+		<div>账号管理
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>服务管理
+</div>
+		<div>推送消息
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>故障管理
+</div>
+		<div>接入
+</div>
+		<div>Python
+</div>
+		<div>SDK接入
+</div>
+		<div>Java
+</div>
+		<div>API接入
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
