@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="nagios_hype_container" style="margin:auto;position:relative;width:1024px;height:5600px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="nagios.hyperesources/nagios_hype_generated_script.js?54597"></script>
+		<script type="text/javascript" charset="utf-8" src="nagios.hyperesources/nagios_hype_generated_script.js?56707"></script>
 	</div>
 
 	<!-- end copy -->
@@ -44,7 +44,7 @@
 		<div>1) 登录百度告警，完善个人联系方式，然后点击进入默认空间
 2) 点击升级策略，创建微信、电话、短信、邮件接收告警信息的升级策略
 3) 在服务管理中，创建Nagios接收服务
-4) 请记录下服务ID以及Token，演示视频中的服务ID为1588，token为 96d7f4e94e9e0acb567c30d0e63122ca，在后续Nagios配置中需要用到
+4) 请记录下服务ID以及Token，演示视频中的服务ID为3520，token为 35415c4f2585c805129cceb804b990e4，在后续Nagios配置中需要用到
 </div>
 		<div>define command{command_name notify-service-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 告警服务: $SERVICEDESC$ 主机别名: $HOSTALIAS$ 主机IP: $HOSTADDRESS$ 服务状态: $SERVICESTATE$ 发生时间: $LONGDATETIME$ 附加信息: $SERVICEOUTPUT$" | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
 		<div>2) 给被监控对象的机器更多的测试负载
@@ -59,9 +59,12 @@
 		<div>3) nagios监控到CRITICAL的告警
 </div>
 		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：</div>
+		<div></div>
 		<div>如果Nagios安装在默认目录，可以用如下命令进行编辑：
 </div>
 		<div>service nagios restart</div>
+		<div>4) 在手机上收到百度告警发送的告警短信
+</div>
 		<div>最终编辑后的效果如下图：
 </div>
 		<div>cd ~find . | xargs -P 50 -i cat {} > /dev/null</div>
@@ -69,6 +72,12 @@
 		<div>1) 将百度告警发送脚本gaojing_nagios.sh下载到Nagios命令目录下（默认为/usr/local/nagios/libexec），确认其权限与其他命令一样如nagios:nagios)
 点击 这里下载gaojing_nagios.sh告警脚本</div>
 		<div>gaojing_nagios.sh 脚本内容：
+</div>
+		<div>2) 修改nagios的配置文件command.cfg（默认位置为：/usr/local/nagios/etc/objects)，command.cfg用以配置nagios
+各项监控和操作 命令。
+
+添加新的command：notify-service-by-baidugaojing和notify-host-by-baidugaojing，其中3520和
+35415c4f2585c805129cceb804b990e4为之前百度告警服务的id和token
 </div>
 		<div>执行如下指令重启Nagios：
 </div>
@@ -79,12 +88,6 @@
 3)在Nagios中配置templates.cfg，配置联系人使用百度告警接收告警。
 4)测试配置是否成功，使用电话、短信、邮件、微信接收告警！
 
-</div>
-		<div>2) 修改nagios的配置文件command.cfg（默认位置为：/usr/local/nagios/etc/objects)，command.cfg用以配置nagios
-各项监控和操作 命令。
-
-添加新的command：notify-service-by-baidugaojing和notify-host-by-baidugaojing，其中1588和
-96d7f4e94e9e0acb567c30d0e63122ca为之前百度告警服务的id和token
 </div>
 		<div>在Nagios中配置templates.cfg
 </div>
@@ -104,54 +107,45 @@ _commands和host_notification_commands的值为设置好的notify-service-by-bai
 		<div>最后的脚本权限如下图：</div>
 		<div> 帮助文档
 </div>
-		<div></div>
-		<div>PHP
+		<div>故障管理
 </div>
-		<div>空间管理
+		<div>接入
 </div>
-		<div>发送短信接入
+		<div>案例场景
 </div>
-		<div>数据分析
+		<div>SDK接入
 </div>
 		<div>
 </div>
-		<div>功能介绍
+		<div>Nagios接入指南
 </div>
-		<div>Zabbix接入指南
-</div>
-		<div>推送事件
+		<div>产品手册
 </div>
 		<div>成员管理
 </div>
 		<div>产品介绍
 </div>
-		<div>案例场景
-</div>
-		<div>策略管理
-</div>
-		<div>产品手册
-</div>
 		<div>账号管理
 </div>
-		<div>Nagios接入指南
+		<div>值班管理
 </div>
-		<div>服务管理
+		<div>功能介绍
 </div>
-		<div>推送消息
+		<div>API接入
+</div>
+		<div>数据分析
 </div>
 		<div>OpenFact接入指南
 </div>
-		<div>故障管理
+		<div>服务管理
 </div>
-		<div>接入
+		<div>发送短信接入
 </div>
-		<div>Python
+		<div>Zabbix接入指南
 </div>
-		<div>SDK接入
+		<div>策略管理
 </div>
-		<div>Java
-</div>
-		<div>API接入
+		<div>空间管理
 </div>
 
 	</div>

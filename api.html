@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>api</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:3400px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?27269"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>新文本</div>
+		<div> 帮助文档
+</div>
+		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
+邮箱：gaojing@baidu.com
+电话：13924600771
+QQ群：183806029
+
+</div>
+		<div>推送消息API
+</div>
+		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
+		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
+		<div>参数描述
+
+参数名类型必须说明
+servicekey string 是 API访问服务时需要的key，在服务详情页面查看，需放入http头部，请参见  服务管理
+
+service_id int 是 在 百度告警 》 服务管理 子菜单下创建服务所获得的id，请参见 服务管理
+
+description string 是 事件描述，请任意填写 
+event_type enum 是 暂时是定值，请填写"trigger" 
+</div>
+		<div>{"status": true,"message": "ok","data": {"event": { // 推送事件成功后生成的事件对象"id": 172,"incident_id": 366, // 与该事件关联的故障id"service_id": 148, // 与该事件关联的故障所属的服务id"event_type": "trigger", // 事件类型"description": "This is the event description.", // 事件描述"create_time": "2014-09-17 15:48:42","update_time": "2014-09-17 15:48:42",}}}</div>
+		<div>URL - POST http://gaojing.baidu.com/event/create
+
+</div>
+		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
+		<div>参数说明
+
+参数名类型必须说明
+appid string 是 应用id，由百度告警系统管理员分配，需放入http头部
+
+token string 是 应用访问所需的token，由百度告警系统管理员分配，需放入http头部
+
+signature string 是 request签名，需放入http头部
+
+useid int 是 应用消费消息配额的user信息，默认为0 需放入http头部
+
+channel enum('sms', 'phone', 'email') 是 推送消息的类型 
+description string 是 推送消息的内容，channel='sms'|'email'时有效 
+title string 否 推送消息的标题，channel='sms'时有效 
+receiver string 是 channel='sms'|'phone'时请填写手机号码，channel='email'时请填写邮箱地址 
+</div>
+		<div>Step 2：通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
+		<div>API接入
+</div>
+		<div>#!/bin/bashcurl -H ‘servicekey:$SERVICE_KEY' -X POST -d '{"service_id”:$SERVICE_ID,"description":"This is the event description.","event_type":"trigger"}' \http://tonggao.baidu.com/event/create</div>
+		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
+		<div>URL - POST http://gaojing.baidu.com/AlertList/push
+</div>
+		<div>示例 - bash 
+需要把$SERVICEKEY 和 $SERVICE_ID 换为在百度告警平台中创建的服务
+</div>
+		<div>告警平台提供API接入方式，有如下两类API接入推送事件API：推送事件API：通过该API接入的数据，可使用告警平台的全部功能，如故障管理等推送消息API：通过该API可以直接发送消息给指定的号码</div>
+		<div>示例-bash示例</div>
+		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
+</div>
+		<div>返回值- status:200OK</div>
+		<div>推送事件API</div>
+		<div></div>
+		<div>产品手册
+</div>
+		<div>
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>成员管理
+</div>
+		<div>功能介绍
+</div>
+		<div>空间管理
+</div>
+		<div>故障管理
+</div>
+		<div>案例场景
+</div>
+		<div>接入
+</div>
+		<div>数据分析
+</div>
+		<div>产品介绍
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>服务管理
+</div>
+		<div>发送短信接入
+</div>
+		<div>账号管理
+</div>
+		<div>值班管理
+</div>
+		<div>SDK接入
+</div>
+		<div>策略管理
+</div>
+		<div>API接入
+</div>
+		<div>Nagios接入指南
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>

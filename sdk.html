@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>sdk</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="sdk_hype_container" style="margin:auto;position:relative;width:1024px;height:3800px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="sdk.hyperesources/sdk_hype_generated_script.js?5746"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>使用 - 推送事件</div>
+		<div>tar -zxvf tonggao_sdk_python.tar.gz /path/to/wherever/you/like</div>
+		<div>安装
+</div>
+		<div>wget http://tonggao.baidu.com/plugins/tonggao_sdk_java-1.0-SNAPSHOT.jar</div>
+		<div>Python SDK</div>
+		<div>mv tonggao_sdk_php.phar /path/to/wherever/you/like/</div>
+		<div>JAVA SDK</div>
+		<div>使用 - 推送消息</div>
+		<div>#!/usr/bin/env python#encoding=utf-8import tonggao_sdk_pyif "__main__" == __name__:serviceId = "" # 在百度通告 》个人中心 》 服务管理 子菜单下创建服务所获得的idserviceKey ="" # API访问服务时需要的key，在服务详情页面生成tonggaoIncident = tonggao_sdk_py.TonggaoIncident(serviceId,serviceKey)#trigger incidenttonggaoIncident.triggerIncident("This is the event description.")</div>
+		<div>在Eclipse右键工程 -> Properties -> Java Build Path -> Add JARs 。 选择tonggao_sdk_java-1.0-SNAPSHOT.jar件。你就可以在工程中使用tonggao JAVA SDK了</div>
+		<div>下载
+</div>
+		<div>SDK支持</div>
+		<div>require 'phar://tonggao_sdk_php.phar/sdk.php'; // 导入SDK$service_id = ''; // 在百度告警 》 服务管理 子菜单下创建服务所获得的id$service_key = ''; // API访问服务时需要的key，在服务详情页面生成incident_client = new TonggaoIncident($service_id,$service_key);//trigger incident$incident_client->triggerIncident("This is the event description.");</div>
+		<div>#!/usr/bin/env python#encoding=utf-8import tonggao_sdk_pyif "__main__" == __name__:#set your appId and tokenappId = "" # 应用id，由系统管理员分配，需放入http头部token = "" # 应用访问所需的token，由系统管理员分配，需放入http头部tonggaoNotice = tonggao_sdk_py.TonggaoNotice(appId, token)# sendMessagetonggaoNotice.sendMessage("email", "liurongcheng@baidu.com", "here is email body", "here is email title")tonggaoNotice.sendMessage("sms", "139****1234", "here is sms message")tonggaoNotice.sendMessage("phone", "139****1234")</div>
+		<div>百度告警平台提供3个接入的SDKPHP SDKPython SDKJAVA SDK</div>
+		<div>// import the need classimport com.baidu.szop.bellringer.sdk.TonggaoIncident;public class Test {public static void main(String[] args) throws Exception{// set your serviceId and serviceKeyint serviceId = 0; // 在百度通告 》个人中心 》 服务管理 子菜单下创建服务所获得的idString serviceKey =""; // 应用访问所需的token，由系统管理员分配TonggaoIncident tonggaoIncident = new TonggaoIncident(serviceId,serviceKey);//trigger incidenttonggaoIncident.triggerIncident("This is the event description.");}}</div>
+		<div>PHP SDK</div>
+		<div>// import the need classimport com.baidu.szop.bellringer.sdk.TonggaoNotice;import com.baidu.szop.bellringer.sdk.util.SendType;import com.baidu.szop.bellringer.sdk.TonggaoNotice;import com.baidu.szop.bellringer.sdk.util.SendType;public class Test {public static void main(String[] args) throws Exception{// set your appId and tokenString appId = "";String token = "";// sendweb端TonggaoNotice tonggaoNotice = new TonggaoNotice(appId, token);//接受人可以是list// sendMessagetonggaoNotice.sendMessage(SendType.EMAIl,"tonggao@baidu.com","here is email body", "here is email title");tonggaoNotice.sendMessage(SendType.SMS,"139****1234","Message",null);tonggaoNotice.sendMessage(SendType.PHONE,"139****1234",null,null);}}</div>
+		<div>wget http://tonggao.baidu.com/plugins/tonggao_sdk_python.tar.gz</div>
+		<div>require 'phar://tonggao_sdk_php.phar/sdk.php'; // 导入SDK$appId = ''; // 应用id，由系统管理员分配，需放入http头部$token = ''; // 应用访问所需的token，由系统管理员分配$qudao_client = new TonggaoNotice($appId, $token);$qudao_client->sendMessage('email', "tonggao@baidu.com", "here is email body", "here is email title");$qudao_client->sendMessage('SMS', "139****1234", "here is sms message");$qudao_client->sendMessage('phone', "139****1234");</div>
+		<div>wget http://tonggao.baidu.com/plugins/tonggao_sdk_php.phar</div>
+		<div> 帮助文档
+</div>
+		<div></div>
+		<div>案例场景
+</div>
+		<div>值班管理
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>产品手册
+</div>
+		<div>空间管理
+</div>
+		<div>功能介绍
+</div>
+		<div>策略管理
+</div>
+		<div>SDK接入
+</div>
+		<div>故障管理
+</div>
+		<div>API接入
+</div>
+		<div>
+</div>
+		<div>服务管理
+</div>
+		<div>产品介绍
+</div>
+		<div>成员管理
+</div>
+		<div>接入
+</div>
+		<div>数据分析
+</div>
+		<div>发送短信接入
+</div>
+		<div>账号管理
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
