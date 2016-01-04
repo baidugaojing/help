@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>zabbix</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="zabbix_hype_container" style="margin:auto;position:relative;width:1024px;height:8000px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="zabbix.hyperesources/zabbix_hype_generated_script.js?79070"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>2)脚本文件为：baidu_gaojing.sh，将其放置到zabbix指定的告警脚本目录下，并赋予执行权限（默认安装的路径在/usr/lib/zabbix/alertscripts，可查看zabbix配置；脚本所属的用户和组建议设置成zabbix:zabbix以保证可以被zabbix server调用）
+
+</div>
+		<div>4)配置action。
+字段值请按下填写：Default subject : {TRIGGER.STATUS}: {TRIGGER.NAME}Default message: {EVENT.TIME}|{EVENT.VALUE}|{TRIGGER.SEVERITY}|{TRIGGER.EXPRESSION}|{HOST.NAME1}|{ITEM.NAME1}|{ITEM.VALUE1}</div>
+		<div>1)在zabbix中，发送告警的方式叫做Media type，我们添加一种方式，使用脚本将告警发送给百度告警。
+</div>
+		<div>3)电话告警
+</div>
+		<div>告警脚本：baidu_gaojing
+</div>
+		<div>触发trigger，通过电话、微信接受告警
+</div>
+		<div></div>
+		<div>2)配置服务，作为告警接收的入口。ID为1542，token为9f59fde923ba56515f234bb87dd7593b
+</div>
+		<div>2)zabbix监测到cpu idle异常
+</div>
+		<div>选择要监控的item，配置trigger和action，使其异常时使用百度告警发送信息
+</div>
+		<div>对于使用zabbix的用户，要接入百度告警非常简单，只需要按以下四步骤进行配置，就可以使用短信、电话、微信来接收zabbix告警信息。接入步骤1)在百度告警中配置服务和升级策略。2)配置zabbix，新增使用百度告警发送告警信息。3)选择监控trigger，配置其action为使用百度告警发送信息。4)触发trigger，电话、短信、微信接收告警！
+</div>
+		<div>1)想办法消耗CPU，触发trigger，比如：
+</div>
+		<div>1)这里我们选择了cpu idle作为示例，配置当cpu idle<40%的时候，就发出告警。注意：action中的Default message字段请按以下要求填写。
+2)选择item。
+</div>
+		<div>在百度告警中配置服务和升级策略
+</div>
+		<div>1)配置升级策略，使用电话、短信和微信接收告警
+</div>
+		<div>#! /bin/bashTIME=`date`SEND_TO=$1TITLE=$2CONTENT=$3SERVICE_ID=`eval echo $SEND_TO|awk -F, '{print $1}'`SERVICE_KEY=`eval echo $SEND_TO|awk -F, '{print $2}'`EVENT_TYPE='trigger'DESCRIPTION="$TITLE-$CONTENT"DATA="{service_id : \"$SERVICE_ID\", description : \"$DESCRIPTION\",event_type : \"$EVENT_TYPE\"}"curl --silent -H "servicekey:$SERVICE_KEY" -X POST -d "$DATA" http://gaojing.baidu.com/event/create</div>
+		<div>Zabbix接入指南</div>
+		<div>3)微信收到告警
+</div>
+		<div>3)为接收告警的zabbix管理员帐号添加新的告警方式 baidu-gaojing，其中send to参数填写之前服务的ID和token。
+</div>
+		<div>1)配置trigger。
+</div>
+		<div>配置zabbix，新增使用百度告警发送告警信息
+</div>
+		<div>4)确保接收帐号拥有相关权限。
+</div>
+		<div> 帮助文档
+</div>
+		<div>推送消息
+</div>
+		<div>发送短信接入
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>成员管理
+</div>
+		<div>产品介绍
+</div>
+		<div>空间管理
+</div>
+		<div>产品手册
+</div>
+		<div>推送事件
+</div>
+		<div>Java
+</div>
+		<div>
+</div>
+		<div>策略管理
+</div>
+		<div>功能介绍
+</div>
+		<div>案例场景
+</div>
+		<div>API接入
+</div>
+		<div>接入
+</div>
+		<div>数据分析
+</div>
+		<div>PHP
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>故障管理
+</div>
+		<div>账号管理
+</div>
+		<div>服务管理
+</div>
+		<div>Python
+</div>
+		<div>SDK接入
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
