@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="sms_hype_container" style="margin:auto;position:relative;width:1024px;height:1600px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?81876"></script>
+		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?48866"></script>
 	</div>
 
 	<!-- end copy -->
@@ -38,6 +38,7 @@
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
 		<div>发送短信接入
 </div>
+		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
 		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
 1)下载 send.sh 脚本，脚本内容如下所示：
 
@@ -54,7 +55,6 @@ QQ群：183806029
 </div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
 		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
-		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
 		<div> 帮助文档
 </div>
 		<div></div>
