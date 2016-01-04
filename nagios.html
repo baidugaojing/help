@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="nagios_hype_container" style="margin:auto;position:relative;width:1024px;height:5600px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="nagios.hyperesources/nagios_hype_generated_script.js?56707"></script>
+		<script type="text/javascript" charset="utf-8" src="nagios.hyperesources/nagios_hype_generated_script.js?72195"></script>
 	</div>
 
 	<!-- end copy -->
@@ -54,12 +54,13 @@
 </div>
 		<div>在百度告警中配置服务和升级策略
 </div>
-		<div>执行如下测试语句，以达到机器负载过高的效果</div>
+		<div>执行如下测试语句，以达到机器负载过高的效果
+</div>
 		<div>define command{command_name notify-host-by-baidugaojingcommand_line /bin/echo "告警类型: $NOTIFICATIONTYPE$ 主机名: $HOSTNAME$ State: $HOSTSTATE$ 主机IP: $HOSTADDRESS$ 主机状态: $HOSTOUTPUT$ 发生时间: $LONGDATETIME$ | xargs -i /usr/local/nagios/libexec/baidu_gaojing.sh 1588,96d7f4e94e9e0acb567c30d0e63122ca {}}</div>
 		<div>3) nagios监控到CRITICAL的告警
 </div>
-		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：</div>
-		<div></div>
+		<div>执行语句后，使用top指令查看机器的负载，效果如下图所示：
+</div>
 		<div>如果Nagios安装在默认目录，可以用如下命令进行编辑：
 </div>
 		<div>service nagios restart</div>
@@ -107,6 +108,7 @@ _commands和host_notification_commands的值为设置好的notify-service-by-bai
 		<div>最后的脚本权限如下图：</div>
 		<div> 帮助文档
 </div>
+		<div></div>
 		<div>故障管理
 </div>
 		<div>接入
