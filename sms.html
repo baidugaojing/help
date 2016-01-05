@@ -23,8 +23,8 @@
   <body>
 	<!-- copy these lines to your document: -->
 
-	<div id="sms_hype_container" style="margin:auto;position:relative;width:1024px;height:1600px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?53246"></script>
+	<div id="sms_hype_container" style="margin:auto;position:relative;width:1024px;height:2500px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?99992"></script>
 	</div>
 
 	<!-- end copy -->
@@ -35,26 +35,38 @@
 
 	<div style="display:none">
 
-		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
-		<div>发送短信接入
-</div>
-		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
-		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
-1)下载 send.sh 脚本，脚本内容如下所示：
-
-</div>
-		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
-</div>
-		<div>
-</div>
+		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
+		<div>接入流程</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
 电话：13924600771
 QQ群：183806029
 
 </div>
+		<div>发送短信接入
+</div>
+		<div>
+</div>
+		<div>PS:超出部分按照0.045元收取</div>
+		<div>5)百度告警发起扣费操作。
+6)客户确认扣费。
+</div>
+		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
+</div>
+		<div>百度告警平台提供短信的发送功能，可按如下步骤进行试用：
+1)下载 send.sh 脚本，脚本内容如下所示：
+
+</div>
+		<div>1)试用，通过短信发送账号free_trial免费试用。
+2)联系我们签合同，获取APP_ID和TOKEN，我们按照合同套餐提供相应的配额。
+3)每个自然月底进行结算，百度告警给出消费账单，客户核对。
+4)客户在百度开放云平台的财务中心，按核对后的账单实际产生的费用进行充值。
+
+</div>
+		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
+		<div>直发短信套餐</div>
+		<div>2)通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
-		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
 		<div> 帮助文档
 </div>
 		<div></div>
