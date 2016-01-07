@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:3400px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?32356"></script>
+		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?56669"></script>
 	</div>
 
 	<!-- end copy -->
@@ -44,7 +44,7 @@
 QQ群：183806029
 
 </div>
-		<div>推送消息API
+		<div>2、推送消息API
 </div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
 		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
@@ -62,6 +62,7 @@ event_type enum 是 暂时是定值，请填写"trigger"
 		<div>URL - POST http://gaojing.baidu.com/event/create
 
 </div>
+		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
 		<div>参数说明
 
 参数名类型必须说明
@@ -78,7 +79,6 @@ description string 是 推送消息的内容，channel='sms'|'email'时有效
 title string 否 推送消息的标题，channel='sms'时有效 
 receiver string 是 channel='sms'|'phone'时请填写手机号码，channel='email'时请填写邮箱地址 
 </div>
-		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
 		<div>Step 2：通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
 		<div>API接入
 </div>
@@ -94,7 +94,7 @@ receiver string 是 channel='sms'|'phone'时请填写手机号码，channel='ema
 		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
 </div>
 		<div>返回值- status:200OK</div>
-		<div>推送事件API</div>
+		<div>1、推送事件API</div>
 		<div></div>
 		<div>产品手册
 </div>
