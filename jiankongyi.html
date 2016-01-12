@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>jiankongyi</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="jiankongyi_hype_container" style="margin:auto;position:relative;width:1024px;height:3200px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="jiankongyi.hyperesources/jiankongyi_hype_generated_script.js?90645"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>微信告警
+</div>
+		<div>将脚本中的id和token的分别替换为在百度告警平台中服务的ID与token即可。脚本中依赖curl需要下载对应的版本，并解压放入目录D:\中。
+下载地址：http://curl.haxx.se/download.html
+</div>
+		<div>2、在监控易中配置告警脚本
+</div>
+		<div>1)配置升级策略，使用电话、短信和微信接收告警。具体可以参考策略管理
+</div>
+		<div>短信与电话告警
+</div>
+		<div>1)在监控易单间版本的告警管理中，配置脚本告警方式
+</div>
+		<div>监控易接入指南</div>
+		<div>3)点击测试，触发报警
+</div>
+		<div>对于使用监控易单机版本的用户，要接入百度告警非常简单，只需要按照以下两部分进行配置就可以使用短信、电话、微信来接收监控易的告警。1)在百度告警中配置服务和升级策略。2)在监控易中配置脚本告警
+</div>
+		<div>2)脚本告警的内容
+</div>
+		<div>2)配置服务，作为告警接收的入口。ID为3746，token为601c12e073eb0449d0fc6e1e976015a1
+</div>
+		<div>@echo offset id=3746set token=601c12e073eb0449d0fc6e1e976015a1set event_type=triggerset description=“script alert test %1 %2 %3 %4 %5”set head=servicekey:%token%set data={'service_id':'%id%','description':'%description%','event_type':'%event_type%'}echo %head%>>D:\alertScript\data.txtecho %data%>>D:\alertScript\data.txt“D:\curl.exe" -s -H %head% -X POST -d %data% http://gaojing.baidu.com/event/create>>D:\alertScript\result.html 2>>D:\alertScript\error.txt</div>
+		<div>1、在百度告警中配置服务和升级策略
+</div>
+		<div> 帮助文档
+</div>
+		<div></div>
+		<div>值班管理
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>产品手册
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>
+</div>
+		<div>SDK接入
+</div>
+		<div>数据分析
+</div>
+		<div>接入
+</div>
+		<div>监控易接入指南
+</div>
+		<div>功能介绍
+</div>
+		<div>策略管理
+</div>
+		<div>API接入
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>成员管理
+</div>
+		<div>空间管理
+</div>
+		<div>故障管理
+</div>
+		<div>代理接入
+</div>
+		<div>发送短信接入
+</div>
+		<div>产品介绍
+</div>
+		<div>案例场景
+</div>
+		<div>服务管理
+</div>
+		<div>账号管理
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
