@@ -23,8 +23,8 @@
   <body>
 	<!-- copy these lines to your document: -->
 
-	<div id="service_hype_container" style="margin:auto;position:relative;width:1024px;height:1800px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="service.hyperesources/service_hype_generated_script.js?72222"></script>
+	<div id="service_hype_container" style="margin:auto;position:relative;width:1024px;height:4200px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="service.hyperesources/service_hype_generated_script.js?28088"></script>
 	</div>
 
 	<!-- end copy -->
@@ -35,74 +35,128 @@
 
 	<div style="display:none">
 
-		<div>5、接入方式
+		<div>接口回调只会把状态全部回调到同一个接口，对于接口的返回内容也有要求，要求参数返回如下的JSON格式：
 </div>
-		<div>3、状态回调
+		<div>升级事件 - 告警平台会POST的参数列表
+
+参数名类型必然提供说明
+servicekey string 是 告警平台中服务对应的ServiceKey，在服务详情页面查看，会放入http头部，请参见  服务管理
+
+serviceId int 是 在 百度告警 》 服务管理 子菜单下创建服务所获得的id，请参见 服务管理
+
+event_type string 是 这里为”upgrade" 
+incident_id int 是 告警平台中故障的ID 
+original_id string 是 第三方平台提供的事件ID，这里为创建故障时，第三方提供的事件ID 
+from int 是 升级前的级别，第一级为1，第二级为2，依此类推 
+to int 是 升级之后的级别，如果为 -1 表示已经升级到最高级别 
 </div>
-		<div>如上图所示，故障升级或者被认领解决后，会将故障的状态反馈给成员配置的回调地址，这样第三方系统就可以掌握它们故障的生命周期。
+		<div>4、接入方式
 </div>
+		<div>认领事件 - 告警平台会POST的参数列表
+
+参数名类型必然提供说明
+servicekey string 是 告警平台中服务对应的ServiceKey，在服务详情页面查看，会放入http头部，请参见  服务管理
+
+serviceId int 是 在 百度告警 》 服务管理 子菜单下创建服务所获得的id，请参见 服务管理
+
+event_type string 是 这里为”ack" 
+incident_id int 是 告警平台中故障的ID 
+original_id string 是 第三方平台提供的事件ID，这里为创建故障时，第三方提供的事件ID 
+</div>
+		<div>3) 升级事件回调参数：
+</div>
+		<div>5、状态回调
+</div>
+		<div>下面为故障三种状态下，告警平台回调用户接口时提供的参数说明
+</div>
+		<div>5.1 准备与告警平台交互的回调接口</div>
 		<div>外部监控系统推送到通告平台中所有满足适配规则的事件所生成的故障会按照相应的升级策略进行升级。如上图所示，所有满足适配规则“[critical][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Critical升级策略”进行升级，而所有满足适配规则“[warning][host135][cpu_idle].*”的事件所生成的故障会按照升级策略“Hao123-Warning升级策略”进行升级。
 有多条适配规则存在时，事件一旦满足某一条适配规则便停止适配。</div>
+		<div>{"status" : true/false,"message" : "错误的信息"}</div>
 		<div>1、故障分发
 </div>
+		<div>5.2 在服务配置页面中</div>
 		<div>服务管理
 </div>
-		<div>4、启用停用
+		<div>1) 认领事件回调参数：
 </div>
+		<div>3、启用停用
+</div>
+		<div>URL －POST http://the_url_which_you_want_to_be_callback</div>
 		<div>服务可以被启用与停用，处于停用状态的服务不会接收来自监控系统推送的异常事件从而也不会生成故障，产生告警，开关如下图所示。
 </div>
 		<div>2、故障合并
 </div>
-		<div>升级策略创建完成后，用户需从左侧导航栏服务管理菜单项进入服务管理页面，并在此页面创建服务，如下图所示。
+		<div>解决事件 - 告警平台会POST的参数列表
 
+参数名类型必然提供说明
+servicekey string 是 告警平台中服务对应的ServiceKey，在服务详情页面查看，会放入http头部，请参见  服务管理
+
+serviceId int 是 在 百度告警 》 服务管理 子菜单下创建服务所获得的id，请参见 服务管理
+
+event_type string 是 这里为”rez" 
+incident_id int 是 告警平台中故障的ID 
+original_id string 是 第三方平台提供的事件ID，这里为创建故障时，第三方提供的事件ID 
 </div>
 		<div>在完成升级策略与服务的配置后,用户可以在服务管理页面获取到服务的 ID 与 API Key, 并通过 API(也提供 Java、PHP 与 Python 版本的 SDK)的方式实现外部监控系统与通告 平台的对接,具体方法请参考文档。
+</div>
+		<div>百度告警平台支持故障状态的回调，当故障的状态发生变化时候，可以把状态变更的事件通过用户提供的回调接口通知用户，以便于用户根据故障状态的变化做其他后续的操作。
+用户如果想使用百度告警平台的故障状态状态回调功能，仅需按照如下两个步骤进行配置便可
+step 1: 准备好与告警平台交互的回调接口
+step 2: 在服务配置页面中根据需要配置好回调的接口
+</div>
+		<div>升级策略创建完成后，用户需从左侧导航栏服务管理菜单项进入服务管理页面，并在此页面创建服务，如下图所示。
+
 </div>
 		<div>如上图所示，监控系统推送到通告平台中的满足适配规则的所有事件在启用合并规则的情况下会合并到同一个故障中，并按照相应的升级策略进行升级。
 例如，外部监控系统推送的事件“[critical][host135][cpu_idle]value=10%“与事件“[critical][host135][cpu_idle]value=
 8%”将会合并到同一个故障，并应用升级策略 “Hao123-Critical升级策略”进行升级。
 当监控出现瞬报的时候，轰炸式告警对用户的工作和生活会造成极大的打扰，此时利用合并规则就可以解决这种问题。
 </div>
+		<div>2) 解决事件回调参数：
+</div>
 		<div> 帮助文档
 </div>
 		<div></div>
-		<div>成员管理
-</div>
-		<div>账号管理
-</div>
-		<div>API接入
-</div>
-		<div>值班管理
-</div>
-		<div>发送短信接入
-</div>
-		<div>SDK接入
+		<div>
 </div>
 		<div>Zabbix接入指南
 </div>
-		<div>服务管理
+		<div>数据分析
 </div>
-		<div>策略管理
+		<div>发送短信接入
 </div>
 		<div>案例场景
 </div>
+		<div>产品手册
+</div>
 		<div>空间管理
+</div>
+		<div>策略管理
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>值班管理
 </div>
 		<div>Nagios接入指南
 </div>
 		<div>接入
 </div>
-		<div>OpenFact接入指南
-</div>
 		<div>功能介绍
 </div>
-		<div>数据分析
+		<div>SDK接入
 </div>
-		<div>产品手册
+		<div>服务管理
 </div>
-		<div>
+		<div>成员管理
+</div>
+		<div>代理接入
 </div>
 		<div>故障管理
+</div>
+		<div>API接入
+</div>
+		<div>账号管理
 </div>
 		<div>产品介绍
 </div>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>proxy</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="proxy_hype_container" style="margin:auto;position:relative;width:1024px;height:8200px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="proxy.hyperesources/proxy_hype_generated_script.js?71407"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>4) 安装完之后，进入到  /the_path_you_want_to_install_php/etc   目录中</div>
+		<div>cd /the_path_you_want_to_install_php/sbin && ./php-fpm</div>
+		<div>cd nginx-1.9.9./configure --prefix=/the_path_you_want_to_install_nginx/nginx</div>
+		<div>make && make install</div>
+		<div>cd /the_path_you_want_to_install_php/etc && cp php-fpm.conf.default php-fpm.conf</div>
+		<div>2 安装Nginx</div>
+		<div>4) 配置nginx，以便支持php,进入目录
+</div>
+		<div>5) 进入到 \the_path_you_want_to_install_php\etc\php-fpm.d  目录中</div>
+		<div>1) 获取Nginx源码并解压</div>
+		<div>告警平台内网代理模式设置
+</div>
+		<div>wget http://nginx.org/download/nginx-1.9.9.tar.gztar zxvf nginx-1.9.9.tar.gz</div>
+		<div>cd /the_path_you_want_to_install_nginx/nginx/</div>
+		<div>sendMessage.php 脚本内容：</div>
+		<div>如果公司中仅有一台机器可以访问公网，其他机器都无法访问公网时，想要使用告警平台怎么弄？百度告警平台提供了内网代理设置方法，通过在可访问公网的机器上进行代理转发，便可在内网中使用百度告警。
+下面是windows和linux下设置代理的方法：Windows设置百度告警代理Linux下设置百度告警代理</div>
+		<div>cd /the_path_you_want_to_install_php/etc/php-fpm.d && cp www.conf.default www.conf</div>
+		<div>Windows设置百度告警代理</div>
+		<div>2) 配置安装目录</div>
+		<div>编辑文件：nginx.conf
+把php的配置打开，并修改为如下内容：
+
+</div>
+		<div>4 测试发送
+告警平台提供了在linux下与代理交互的shell脚本，用户可以在其他机器直接使用该脚本便可通过代理进行短信发送
+</div>
+		<div>3 测试发送
+通过POST方式访问代理脚本 sendMessage.php，脚本需要提供三个参数：
+
+</div>
+		<div>本实例的操作系统环境为：windows 7 64位 ＋ Apache ＋ php
+完成Window下设置百度告警代理，仅需进行如下三步
+安装环境部署代理脚本测试发送</div>
+		<div>sendMessage.php脚本接收的参数
+
+参数名类型是否必需说明
+receiver string 是 接收者的电话号码，目前只支持单个号码 
+description string 是 需要发送的短信内容 
+business boolean 是 是否为营销短信，取值为 true／false 
+</div>
+		<div>location ~ \.php$ {root html;fastcgi_pass unix:/the_path_you_want_to_install_php/run/phpfpm.sock;fastcgi_index index.php;fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;include fastcgi_params;}</div>
+		<div>与代理交互脚本 sendMessage.sh</div>
+		<div>1 安装环境
+在windows下安装Apache和PHP也非常简单，windows下可以直接安装Wamp，Wamp已包含Apache、PHP。
+wamp下载地址：点击下载
+PS:如果在安装时候，提示msvcr110.dll文件缺失，导致安装失败，可以先安装 vcredist_x64.exe
+安装完成后，直接运行wamp，便完成了Apache和PHP的环境搭建。如下图所示，绿色表示运行正常：
+
+
+</div>
+		<div>下图为通过chrome的插件postman发起POST请求的例子：
+</div>
+		<div></div>
+		<div>3) 编译安装</div>
+		<div>5) 启动nginx</div>
+		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusageficurl -X POST -d "receiver=$RECEIVER&description=$DESCRIPTION&business=$BUSINESS" http://10.205.90.16:8091/sendMessage.php</div>
+		<div>2 部署代理脚本
+把 脚本 sendMessage.php 放到wamp的web目录中
+</div>
+		<div>cd /the_path_you_want_to_install_nginx/nginx/sbin && ./nginx</div>
+		<div>Linux设置百度告警代理</div>
+		<div><?phpfunction post($url, $data, $headers) {$data = json_encode($data);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);curl_close($ch);$response = json_decode($response);return $response;}$appId = "free_trial";$appToken = "MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY=";$pushUrl = "http://gaojing.baidu.com/AlertList/push";$data = array();$one = array();$one['channel'] = "sms";$one['receiver'] = $_POST['receiver'];$one['description'] = $_POST['description'];$one['business'] = $_POST['business'];$data[] = $one;$headers = array('token:' . $appToken,'appId:' . $appId,'signature:' . md5($appToken . $appId . json_encode($data)),'userId: 0',);$reponse = post($pushUrl, $data, $headers);echo json_encode($reponse);</div>
+		<div>PS: 这个脚本根据情况，修改最后的curl地址，改为真实的内网代理端口地址</div>
+		<div>Linux下配置百度告警代理需要进行如下四步，如已安装nginx和php，请跳过1，2步安装PHP安装Nginx部署代理脚本测试发送</div>
+		<div>通过脚本发送短信：
+</div>
+		<div>1 安装PHP</div>
+		<div>3 部署代理脚本
+把 脚本 sendMessage.php 放到Nginx的web目录中
+</div>
+		<div>1) 获取PHP 7 的源码并解压
+</div>
+		<div>sh sendMessage.sh -r 18575508694 -c "i am test sms"</div>
+		<div>wget http://cn2.php.net/distributions/php-7.0.2.tar.gztar zxvf php-7.0.2.tar.gz</div>
+		<div>如需发营销短信，通过如下命令便可发送：
+</div>
+		<div>2) 配置PHP的安装目录
+</div>
+		<div>sh sendMessage.sh -r 18879801234 -c "i am test sms" -b</div>
+		<div>cd php-7.0.2./configure --prefix=/the_path_you_want_to_install_php/php\--with-libdir=lib64\--enable-fpm\--enable-mysqlnd\--with-mysql=mysqlnd\--with-mysqli=mysqlnd\--with-pdo-mysql=mysqlnd\--enable-opcache\--enable-pcntl\--enable-mbstring\--enable-soap\--enable-zip\--enable-calendar\--enable-bcmath\--enable-exif\--enable-ftp\--with-openssl\--with-zlib\--with-curl\--with-gd\--with-zlib-dir=/usr/lib\--with-png-dir=/usr/lib\--with-jpeg-dir=/usr/lib\--with-gettext\--with-mhash</div>
+		<div>找到这行：listen = 127.0.0.1:9000 , 把它改为：listen = run/phpfpm.sock
+然后创建一个目录：
+</div>
+		<div>示例 sendMessage.php 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
+邮箱：gaojing@baidu.com
+电话：13924600771
+QQ群：183806029
+</div>
+		<div>3) 编译安装
+</div>
+		<div>mkdir -p /the_path_you_want_to_install_php/run</div>
+		<div>make && make install</div>
+		<div>6) 启动php-fpm
+</div>
+		<div> 帮助文档
+</div>
+		<div>空间管理
+</div>
+		<div>策略管理
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>接入
+</div>
+		<div>功能介绍
+</div>
+		<div>值班管理
+</div>
+		<div>SDK接入
+</div>
+		<div>服务管理
+</div>
+		<div>成员管理
+</div>
+		<div>代理接入
+</div>
+		<div>API接入
+</div>
+		<div>账号管理
+</div>
+		<div>产品介绍
+</div>
+		<div>
+</div>
+		<div>故障管理
+</div>
+		<div>数据分析
+</div>
+		<div>发送短信接入
+</div>
+		<div>案例场景
+</div>
+		<div>产品手册
+</div>
+		<div>Zabbix接入指南
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>

@@ -23,8 +23,8 @@
   <body>
 	<!-- copy these lines to your document: -->
 
-	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:3400px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?56669"></script>
+	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:4400px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?28652"></script>
 	</div>
 
 	<!-- end copy -->
@@ -36,18 +36,25 @@
 	<div style="display:none">
 
 		<div>新文本</div>
-		<div> 帮助文档
+		<div>示例-bash示例</div>
+		<div>2、推送消息API
 </div>
+		<div>#!/bin/bashSERVICE_KEY="bd9d45a721f60746270f935ab92b9db7"SERVICE_ID=3155curl -H "servicekey:$SERVICE_KEY" -X POST -d "{'service_id':$SERVICE_ID,'description':'This is the event description.','event_type':'trigger'}" http://gaojing.baidu.com/event/create</div>
+		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
 电话：13924600771
 QQ群：183806029
 
 </div>
-		<div>2、推送消息API
+		<div>URL - POST http://gaojing.baidu.com/AlertList/push
 </div>
+		<div>Step 2：通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
+		<div>返回值- status:200OK</div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
-		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
+		<div>API接入
+</div>
+		<div>示例 - PHP 需要把 service_key 和 service_id换为在百度告警平台中创建的服务</div>
 		<div>参数描述
 
 参数名类型必须说明
@@ -58,11 +65,13 @@ service_id int 是 在 百度告警 》 服务管理 子菜单下创建服务所
 description string 是 事件描述，请任意填写 
 event_type enum 是 暂时是定值，请填写"trigger" 
 </div>
-		<div>{"status": true,"message": "ok","data": {"event": { // 推送事件成功后生成的事件对象"id": 172,"incident_id": 366, // 与该事件关联的故障id"service_id": 148, // 与该事件关联的故障所属的服务id"event_type": "trigger", // 事件类型"description": "This is the event description.", // 事件描述"create_time": "2014-09-17 15:48:42","update_time": "2014-09-17 15:48:42",}}}</div>
-		<div>URL - POST http://gaojing.baidu.com/event/create
-
+		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
+		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
 </div>
-		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
+		<div>1、推送事件API</div>
+		<div>{"status": true,"message": "ok","data": {"event": { // 推送事件成功后生成的事件对象"id": 172,"incident_id": 366, // 与该事件关联的故障id"service_id": 148, // 与该事件关联的故障所属的服务id"event_type": "trigger", // 事件类型"description": "This is the event description.", // 事件描述"create_time": "2014-09-17 15:48:42","update_time": "2014-09-17 15:48:42",}}}</div>
+		<div><?php$config = array('service_id' => 3155,'service_key' => 'bd9d45a721f60746270f935ab92b9db7',);$description = 'This is the event description.';$url = 'http://gaojing.baidu.com/event/create';$data = array('service_id' => $config['service_id'],'description' => $description,'event_type' => 'trigger',);$headers[] = 'servicekey:'.$config['service_key'];post($url, $data, $headers);function post($url, $data, $headers){$data = json_encode($data);print_r($headers);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);curl_close($ch);$response = json_decode($response);print_r($response);return $response;}</div>
+		<div>示例 - bash 需要把 $SERVICEKEY 和 $SERVICE_ID 换为在百度告警平台中创建的服务</div>
 		<div>参数说明
 
 参数名类型必须说明
@@ -79,62 +88,55 @@ description string 是 推送消息的内容，channel='sms'|'email'时有效
 title string 否 推送消息的标题，channel='sms'时有效 
 receiver string 是 channel='sms'|'phone'时请填写手机号码，channel='email'时请填写邮箱地址 
 </div>
-		<div>Step 2：通过 shell 执行 send.sh 脚本，并传入电话号码与要发送的内容，如下所示：</div>
-		<div>API接入
-</div>
-		<div>#!/bin/bashcurl -H ‘servicekey:$SERVICE_KEY' -X POST -d '{"service_id”:$SERVICE_ID,"description":"This is the event description.","event_type":"trigger"}' \http://tonggao.baidu.com/event/create</div>
-		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
-		<div>URL - POST http://gaojing.baidu.com/AlertList/push
-</div>
-		<div>示例 - bash 
-需要把$SERVICEKEY 和 $SERVICE_ID 换为在百度告警平台中创建的服务
+		<div>URL - POST http://gaojing.baidu.com/event/create
+
 </div>
 		<div>告警平台提供API接入方式，有如下两类API接入推送事件API：推送事件API：通过该API接入的数据，可使用告警平台的全部功能，如故障管理等推送消息API：通过该API可以直接发送消息给指定的号码</div>
-		<div>示例-bash示例</div>
-		<div>如果是营销短信，通过shell执行send.sh 脚本，并传入电话号码和要发送的内容，是否为营销短信，如下所示
+		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
+		<div> 帮助文档
 </div>
-		<div>返回值- status:200OK</div>
-		<div>1、推送事件API</div>
 		<div></div>
-		<div>产品手册
-</div>
-		<div>产品介绍
-</div>
-		<div>SDK接入
-</div>
-		<div>空间管理
-</div>
-		<div>OpenFact接入指南
-</div>
-		<div>故障管理
-</div>
-		<div>API接入
-</div>
-		<div>策略管理
-</div>
-		<div>接入
-</div>
-		<div>数据分析
-</div>
-		<div>发送短信接入
+		<div>代理接入
 </div>
 		<div>案例场景
 </div>
-		<div>
+		<div>Nagios接入指南
 </div>
 		<div>账号管理
 </div>
-		<div>服务管理
+		<div>故障管理
 </div>
-		<div>Nagios接入指南
+		<div>产品手册
 </div>
-		<div>功能介绍
+		<div>发送短信接入
 </div>
-		<div>值班管理
+		<div>
+</div>
+		<div>OpenFact接入指南
 </div>
 		<div>成员管理
 </div>
+		<div>SDK接入
+</div>
+		<div>数据分析
+</div>
+		<div>接入
+</div>
 		<div>Zabbix接入指南
+</div>
+		<div>值班管理
+</div>
+		<div>策略管理
+</div>
+		<div>服务管理
+</div>
+		<div>功能介绍
+</div>
+		<div>产品介绍
+</div>
+		<div>API接入
+</div>
+		<div>空间管理
 </div>
 
 	</div>
