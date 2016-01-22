@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="sms_hype_container" style="margin:auto;position:relative;width:1024px;height:2500px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?91434"></script>
+		<script type="text/javascript" charset="utf-8" src="sms.hyperesources/sms_hype_generated_script.js?25934"></script>
 	</div>
 
 	<!-- end copy -->
@@ -37,11 +37,11 @@
 
 		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5sum|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
 		<div>2、接入流程</div>
+		<div>发送短信接入
+</div>
 		<div>
 </div>
 		<div>PS:超出部分按照0.045元收取</div>
-		<div>发送短信接入
-</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
 电话：13924600771
@@ -71,49 +71,49 @@ QQ群：183806029
 		<div> 帮助文档
 </div>
 		<div></div>
-		<div>账号管理
+		<div>微信告警
 </div>
 		<div>Zabbix接入指南
 </div>
 		<div>SDK接入
 </div>
-		<div>故障管理
+		<div>产品手册
 </div>
 		<div>Nagios接入指南
 </div>
-		<div>OpenFact接入指南
+		<div>策略管理
 </div>
 		<div>服务管理
 </div>
 		<div>产品介绍
 </div>
+		<div>账号管理
+</div>
 		<div>代理接入
 </div>
 		<div>
-</div>
-		<div>微信告警
-</div>
-		<div>功能介绍
-</div>
-		<div>数据分析
-</div>
-		<div>空间管理
-</div>
-		<div>策略管理
-</div>
-		<div>案例场景
 </div>
 		<div>成员管理
 </div>
 		<div>接入
 </div>
-		<div>产品手册
+		<div>数据分析
+</div>
+		<div>空间管理
+</div>
+		<div>案例场景
+</div>
+		<div>值班管理
+</div>
+		<div>OpenFact接入指南
 </div>
 		<div>监控易接入指南
 </div>
 		<div>API接入
 </div>
-		<div>值班管理
+		<div>功能介绍
+</div>
+		<div>故障管理
 </div>
 
 	</div>
