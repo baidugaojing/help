@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	<title>zabbix_classify</title>
+	<style>
+		html {
+			height:100%;
+		}
+		body {
+			background-color:#FFFFFF;
+			margin:0;
+			height:100%;
+		}
+	</style>
+	<!-- copy these lines to your document head: -->
+
+	<meta name="viewport" content="user-scalable=yes, width=1024" />
+
+	<!-- end copy -->
+  </head>
+  <body>
+	<!-- copy these lines to your document: -->
+
+	<div id="zabbixclassify_hype_container" style="margin:auto;position:relative;width:1024px;height:4400px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="zabbix_classify.hyperesources/zabbixclassify_hype_generated_script.js?3624"></script>
+	</div>
+
+	<!-- end copy -->
+	
+
+
+	<!-- text content for search engines: -->
+
+	<div style="display:none">
+
+		<div>3、结果展示
+</div>
+		<div>Zabbix告警分级
+</div>
+		<div>1.1、Zabbix配置trigger的severity的值</div>
+		<div>2、在百度告警平台配置故障分发功能
+</div>
+		<div>再增加一个http的端口监控，并新建trigger，设置severity的值为Warning。
+在Hosts=》Web中新建Scenario，如下图所示。
+</div>
+		<div>1、Zabbix配置
+</div>
+		<div>2）在服务管理中配置故障分发。根据发送消息中severity的值进行匹配，如下图所示，匹配Warning和High两个级别的故障进行分发。
+
+</div>
+		<div>在新建Http监控的Scenario中增加step，如下图所示。
+
+</div>
+		<div>先将trigger中cpu idle的severity的值修改为High。如下图所示
+</div>
+		<div>1）在升级策略中新建三个升级策略，每个升级策略配置配置不同的接收告警的方式，当然也可以配置不同的接收人。具体如下图所示。
+</div>
+		<div>1.2、Zabbix配置action中default message</div>
+		<div>Zabbix中trigger的severity的值定义了trigger的不同严重程度，其中severity默认的6个值为 Not classified、Information、Warning、Average、High、Disaster。要实现Zabbix告警分级功能只需要如下两步
+1）在zabbix中配置trigger的severity的值，并配置action的Default message的内容
+2）在百度告警平台中配置服务的故障分发功能
+
+
+</div>
+		<div>新建trigger，并设置severity的值。
+其中新建trigger中Expression的为：{zabbix-1:web.test.in[Http监控,,bps].last(0)}<100000
+具体设置如下图所示
+</div>
+		<div>在action的Default message中主要需要包含{TRIGGER.SEVERITY}，如下图所示
+
+</div>
+		<div> 帮助文档
+</div>
+		<div></div>
+		<div>空间管理
+</div>
+		<div>服务管理
+</div>
+		<div>策略管理
+</div>
+		<div>API接入
+</div>
+		<div>账号管理
+</div>
+		<div>SDK接入
+</div>
+		<div>OpenFact接入指南
+</div>
+		<div>产品介绍
+</div>
+		<div>接入
+</div>
+		<div>数据分析
+</div>
+		<div>案例场景
+</div>
+		<div>成员管理
+</div>
+		<div>发送短信接入
+</div>
+		<div>监控易接入指南
+</div>
+		<div>值班管理
+</div>
+		<div>功能介绍
+</div>
+		<div>故障管理
+</div>
+		<div>Nagios接入指南
+</div>
+		<div>微信告警
+</div>
+		<div>Zabbix接入指南
+</div>
+		<div>代理接入
+</div>
+		<div>
+</div>
+		<div>产品手册
+</div>
+
+	</div>
+
+	<!-- end text content: -->
+
+  </body>
+</html>
