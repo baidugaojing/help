@@ -23,8 +23,8 @@
   <body>
 	<!-- copy these lines to your document: -->
 
-	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:6800px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?84375"></script>
+	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:7400px;overflow:hidden;" aria-live="polite">
+		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?90581"></script>
 	</div>
 
 	<!-- end copy -->
@@ -40,8 +40,9 @@
 		<div>2、推送消息API
 </div>
 		<div>#!/bin/bashSERVICE_KEY="bd9d45a721f60746270f935ab92b9db7"SERVICE_ID=3155curl -H "servicekey:$SERVICE_KEY" -X POST -d "{'service_id':$SERVICE_ID,'description':'This is the event description.','event_type':'trigger'}" http://gaojing.baidu.com/event/create</div>
-		<div>{"return": true,"message": "ok","data": {"send_status": {"231": {"type": "sms","status": "2" // 1 表示发送成功，2表示发送失败},"232": {"type": "email","status": "1"}}}}</div>
-		<div>{"return": true, // 当return为true时，表示百度告警平台已处理请求"message": "ok", // 当return为false时，message字段为具体出错的原因"errorCode": "6001", // 当return为false时，errorCode字段存在，具体说明详见下表"data": {"consume": { // consume 表示的是本次发送消耗了多少配额"sms": 2,"email": 0,"phone": 0,"hi": 0,"weixin": 0},"surplus": { // surplus表示的是本次发送成功后，还剩下多少配额"phone": 1000,"sms": 100},"remain": { // 在余额不足的情况下返回该字段"phone": 20,"sms": 10},"alertSendList": [{"appId": "bellringer","userId": 0,"body": "DESCRIPTION1111","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": "231" // alert的id,根据该id可以获取alert的发送状态},{"appId": "bellringer","userId": 0,"body": "DESCRIPTION2222","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": "232"}]}}</div>
+		<div>{"return": true,"message": "ok","data": {"send_status": {“436385": {"type": "sms","status": “1" // 1 表示发送成功，2表示发送失败},“436386": {"type": "email","status": "1"}}}}</div>
+		<div>{"return": true, // 当return为true时，表示百度告警平台已处理请求"message": "ok", // 当return为false时，message字段为具体出错的原因"errorCode": "6001", // 当return为false时，errorCode字段存在，具体说明详见下表"data": {"consume": { // consume 表示的是本次发送消耗了多少配额"sms": 2,"email": 0,"phone": 0,"hi": 0,"weixin": 0},"surplus": { // surplus表示的是本次发送成功后，还剩下多少配额"phone": 1000,"sms": 100},"remain": { // 在余额不足的情况下返回该字段"phone": 20,"sms": 10},"alertSendList": [{"appId": "bellringer","userId": 0,"body": "DESCRIPTION1111","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": “436385" // alert的id,根据该id可以获取alert的发送状态},{"appId": "bellringer","userId": 0,"body": "DESCRIPTION2222","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": “436386"}]}}</div>
+		<div>$ ./query.sh -i 436385,436386</div>
 		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
 邮箱：gaojing@baidu.com
@@ -50,17 +51,16 @@ QQ群：183806029
 
 </div>
 		<div>错误信息说明
-
 错误码返回内容说明
-6001 Authorize Error, Wrong token provider token错误，接口认证失败 
-6002 1.please provider appid in header
+6001Authorize Error, Wrong token providertoken错误，接口认证失败
+60021.please provider appid in header
 2.please provider token in header
-3.please provider signature 参数缺失 
-6003 1. Post data is empty or not validate son
+3.please provider signature参数缺失
+60031. Post data is empty or not validate son
 2. AlertService init fail,channel must in (sms,phone,email,weixin)
-3. receiver is not phone number 参数不合法， 
-6004 userId has no userQuota in appId 配额已消耗完 
-6005 userId has no so much userQuota in appId 配额不足 
+3. receiver is not phone number参数不合法，
+6004userId has no userQuota in appId配额已消耗完
+6005userId has no so much userQuota in appId配额不足
 </div>
 		<div>URL - POST http://gaojing.baidu.com/AlertList/push
 </div>
@@ -68,32 +68,18 @@ QQ群：183806029
 		<div>返回值- status:200OK</div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的营销测试短信" -b</div>
 		<div>参数说明
-
 参数名类型必须说明
-appid string 是 应用id，由百度告警系统管理员分配，需放入http头部
-
-token string 是 应用访问所需的token，由百度告警系统管理员分配，需放入http头部
-
-signature string 是 request签名，需放入http头部
-
-alertIds string 是 查询消息生成的id,如[231,232] 
-
-
-
-
-
+alertidsstrings是查询id,如231,232
 </div>
 		<div>API接入
 </div>
 		<div>示例 - PHP 需要把 service_key 和 service_id换为在百度告警平台中创建的服务</div>
 		<div>参数描述
-
 参数名类型必须说明
-servicekey string 是 API访问服务时需要的key，在服务详情页面查看，需放入http头部
-
-service_id int 是 在 百度告警 》 服务管理 子菜单下创建服务所获得的id 
-description string 是 事件描述，请任意填写 
-event_type enum 是 暂时是定值，请填写"trigger" 
+servicekeystring是API访问服务时需要的key，在服务详情页面查看，需放入http头部
+service_idint是在 百度告警 》 服务管理 子菜单下创建服务所获得的id
+descriptionstring是事件描述，请任意填写
+event_typeenum是暂时是定值，请填写"trigger"
 </div>
 		<div>#! /bin/bashusage() { echo "Usage: $0 [-r <电话号码>] [-c <短信内容>] [-b <营销短信请设置-b参数>]" 1>&2; exit 1; }APP_ID="free_trial"TOKEN="MjYxOTNjMTkyZTJjZjgzODA5OGVkNjQyYzgzOGUwMjY="USER_ID="0"RECEIVER=""DESCRIPTION=""BUSINESS=falsewhile getopts 'r:c:b' OPT;docase $OPT inr)RECEIVER="$OPTARG";;c)DESCRIPTION="$OPTARG";;b)BUSINESS=true;;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$RECEIVER" ] || [ -z "$DESCRIPTION" ] || [ "-b" == "$DESCRIPTION" ]; thenusagefiDATA="[{channel : \"sms\", description : \"$DESCRIPTION\",receiver : \"$RECEIVER\",business : \"$BUSINESS\"}]"INPUT=${TOKEN}${APP_ID}${DATA}SIGNATURE=`echo -n $INPUT|md5|awk '{print $1}'`curl -H "appid:$APP_ID" -H "token:$TOKEN" -H "userid:$USER_ID" -H "signature:$SIGNATURE" -X POST -d "$DATA" http://gaojing.baidu.com/AlertList/push</div>
 		<div>当return为false时，message返回的内容如下：
@@ -105,30 +91,27 @@ event_type enum 是 暂时是定值，请填写"trigger"
 		<div>1、推送事件API</div>
 		<div>3、查询消息状态API
 </div>
+		<div>#! /bin/bashusage() { echo "Usage: $0 [-i <alert ids>]" 1>&2; exit 1; }ID=""while getopts 'i:' OPT;docase $OPT ini)ID="$OPTARG";;*)usageesacdoneshift $(($OPTIND - 1))if [ -z "$ID" ]; thenusageficurl "http://gaojing.baidu.com/AlertList/status/alertIds/$ID"</div>
 		<div><?php$config = array('service_id' => 3155,'service_key' => 'bd9d45a721f60746270f935ab92b9db7',);$description = 'This is the event description.';$url = 'http://gaojing.baidu.com/event/create';$data = array('service_id' => $config['service_id'],'description' => $description,'event_type' => 'trigger',);$headers[] = 'servicekey:'.$config['service_key'];post($url, $data, $headers);function post($url, $data, $headers){$data = json_encode($data);print_r($headers);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_POSTFIELDS, $data);curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);$response = curl_exec($ch);$response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);curl_close($ch);$response = json_decode($response);print_r($response);return $response;}</div>
 		<div>示例 - bash 需要把 $SERVICEKEY 和 $SERVICE_ID 换为在百度告警平台中创建的服务</div>
 		<div>参数说明
-
 参数名类型必须说明
-appid string 是 应用id，由百度告警系统管理员分配，需放入http头部
-
-token string 是 应用访问所需的token，由百度告警系统管理员分配，需放入http头部
-
-signature string 是 request签名，需放入http头部
-
-useid int 是 应用消费消息配额的user信息，默认为0 需放入http头部
-
-channel enum('sms', 'phone', 'email') 是 推送消息的类型 
-description string 是 推送消息的内容，channel='sms'|'email'时有效 
-title string 否 推送消息的标题，channel='sms'时有效 
-receiver string 是 channel='sms'|'phone'时请填写手机号码，channel='email'时请填写邮箱地址 
+appidstring是应用id，由百度告警系统管理员分配，需放入http头部
+tokenstring是应用访问所需token，由百度告警系统管理员配，需放入http头部
+signaturestring是request签名，需放入http头部
+useidint是应用消费消息配额的user信息，默认为0 需放入http头部
+channelenum('sms', 'phone', 'email')是推送消息的类型
+descriptionstring是推送消息的内容，channel='sms'|'email'时有效
+titlestring否推送消息的标题，channel='sms'时有效
+receiverstring是channel='sms'|'phone'时请填写手机号码，channel='email'时请填写邮箱地址
 </div>
 		<div>URL - POST http://gaojing.baidu.com/event/create
 
 </div>
 		<div>返回结果如下</div>
-		<div>URL - POST http://gaojing.baidu.com/AlertList/queryStatus
+		<div>URL - GET http://gaojing.baidu.com/AlertList/status
 </div>
+		<div>通过 shell 执行 query.sh 脚本，并传入查询id，如下所示：</div>
 		<div>告警平台提供API接入方式，有如下两类API接入推送事件API：推送事件API：通过该API接入的数据，可使用告警平台的全部功能，如故障管理等推送消息API：通过该API可以直接发送消息给指定的号码</div>
 		<div>./send.sh -r 13924600771 -c "这是来自百度告警平台的测试短信"</div>
 		<div> 帮助文档
