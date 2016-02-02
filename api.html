@@ -24,7 +24,7 @@
 	<!-- copy these lines to your document: -->
 
 	<div id="api_hype_container" style="margin:auto;position:relative;width:1024px;height:6800px;overflow:hidden;" aria-live="polite">
-		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?48608"></script>
+		<script type="text/javascript" charset="utf-8" src="api.hyperesources/api_hype_generated_script.js?84375"></script>
 	</div>
 
 	<!-- end copy -->
@@ -39,8 +39,8 @@
 		<div>示例-bash示例</div>
 		<div>2、推送消息API
 </div>
-		<div>{"return": true,"message": "ok","data": {"send_status": {"231": {"type": "sms","status": "2" // 1 表示发送成功，2表示发送失败},"232": {"type": "email","status": "1"}}}}</div>
 		<div>#!/bin/bashSERVICE_KEY="bd9d45a721f60746270f935ab92b9db7"SERVICE_ID=3155curl -H "servicekey:$SERVICE_KEY" -X POST -d "{'service_id':$SERVICE_ID,'description':'This is the event description.','event_type':'trigger'}" http://gaojing.baidu.com/event/create</div>
+		<div>{"return": true,"message": "ok","data": {"send_status": {"231": {"type": "sms","status": "2" // 1 表示发送成功，2表示发送失败},"232": {"type": "email","status": "1"}}}}</div>
 		<div>{"return": true, // 当return为true时，表示百度告警平台已处理请求"message": "ok", // 当return为false时，message字段为具体出错的原因"errorCode": "6001", // 当return为false时，errorCode字段存在，具体说明详见下表"data": {"consume": { // consume 表示的是本次发送消耗了多少配额"sms": 2,"email": 0,"phone": 0,"hi": 0,"weixin": 0},"surplus": { // surplus表示的是本次发送成功后，还剩下多少配额"phone": 1000,"sms": 100},"remain": { // 在余额不足的情况下返回该字段"phone": 20,"sms": 10},"alertSendList": [{"appId": "bellringer","userId": 0,"body": "DESCRIPTION1111","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": "231" // alert的id,根据该id可以获取alert的发送状态},{"appId": "bellringer","userId": 0,"body": "DESCRIPTION2222","receiver": "13922869526","channel": "sms","callback": null,"business": "false","create_time": "2016-02-01 16:00:36","alertSendListId": "232"}]}}</div>
 		<div>step 1：把如下的示例脚本中的 APP_ID 和 TOKEN 换掉，然后根据所要发送的渠道变更 DATA 中的 channel</div>
 		<div>示例 send.sh 中的短信发送账号 free_trial 仅供测试使用，如需商用，可通过如下方式联系我们：
@@ -76,7 +76,7 @@ token string 是 应用访问所需的token，由百度告警系统管理员分�
 
 signature string 是 request签名，需放入http头部
 
-alertIds string 是 查询消息生成的id,如[231,231] 
+alertIds string 是 查询消息生成的id,如[231,232] 
 
 
 
